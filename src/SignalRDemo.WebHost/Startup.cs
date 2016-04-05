@@ -16,6 +16,7 @@ namespace SignalRDemo.WebHost
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -27,23 +28,16 @@ namespace SignalRDemo.WebHost
 
             app.UseIISPlatformHandler();
 
-            app.Use(async (context, next) =>
-            {
-                logger.LogInformation( "Startup.Configure.Use.Response Start" );
-                await context.Response.WriteAsync("Hello World!");
-                logger.LogInformation( "Startup.Configure.Use.Response End" );
+            app.UseMvc( routes => {
 
-                logger.LogInformation( "Startup.Configure.Use.Next Start" );
-                await next();
-                logger.LogInformation( "Startup.Configure.Use.Next End" );
-            } );
+                routes.MapRoute(
+                    name: "default", 
+                    template: "{controller}/{action}/{id?}",
+                    defaults: new { controller = "Home", action = "Index" }
+                    );
+            });
 
-            app.Run( async ( context ) =>
-            {
-                logger.LogInformation( "Startup.Configure.Run.Response Start" );
-                await context.Response.WriteAsync( "Hello World!" );
-                logger.LogInformation( "Startup.Configure.Run.Response End" );
-            } );
+            app.UseStatusCodePages();
         }
 
         // Entry point for the application.
