@@ -27,16 +27,7 @@ namespace SignalRDemo.WebHost
             logger.LogInformation("Startup.Configure");
 
             app.UseIISPlatformHandler();
-
-            app.UseMvc( routes => {
-
-                routes.MapRoute(
-                    name: "default", 
-                    template: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "Home", action = "Index" }
-                    );
-            });
-
+            app.UseMvcWithDefaultRoute();
             app.UseStatusCodePages();
         }
 
