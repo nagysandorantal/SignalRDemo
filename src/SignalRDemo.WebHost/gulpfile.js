@@ -13,17 +13,18 @@ var paths = {
     webroot: "./wwwroot/"
 };
 
-paths.bootstrapCss = "./bower_components/bootstrap/dist/css/bootstrap.css";
-paths.sbAdminCss = "./bower_components/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css";
-paths.fontAwsomeCss = "./bower_components/font-awesome/css/font-awesome.css";
-paths.morrisCss = "./bower_components/morrisjs/morris.css";
+paths.bootstrapCss =    "./bower_components/bootstrap/dist/css/bootstrap.css";
+paths.sbAdminCss =      "./bower_components/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css";
+paths.fontAwsomeCss =   "./bower_components/font-awesome/css/font-awesome.css";
+paths.morrisCss =       "./bower_components/morrisjs/morris.css";
+paths.siteCss = paths.webroot + "css/site.css";
 
-paths.jqueryJs = "./bower_components/jquery/dist/jquery.js";
-paths.raphaelJs = "./bower_components/raphael/raphael.js";
-paths.morrisJs = "./bower_components/morrisjs/morris.js";
-
+paths.jqueryJs =    "./bower_components/jquery/dist/jquery.js";
+paths.raphaelJs =   "./bower_components/raphael/raphael.js";
+paths.morrisJs =    "./bower_components/morrisjs/morris.js";
+paths.signalRJs =   "./bower_components/signalr/jquery.signalr.js";
 paths.bootstrapJs = "./bower_components/bootstrap/js/*.js";
-
+paths.chatJs =      "./scripts/chat.js";
 
 paths.fonts = "./bower_components/font-awesome/fonts/*";
 
@@ -32,16 +33,19 @@ paths.cssDest = paths.webroot + "css";
 paths.fontDest = paths.webroot + "fonts";
 
 
-
 gulp.task("min:js", function () {
-    gulp.src([paths.jqueryJs, paths.raphaelJs, paths.morrisJs, paths.bootstrapJs])
+    gulp.src([
+            paths.raphaelJs,
+            paths.morrisJs,
+            paths.bootstrapJs]
+        )
     .pipe(concat(paths.jsDest + "/min/site.min.js"))
     .pipe(uglify())
     .pipe(gulp.dest("."));
 });
 
 gulp.task('min:css', function () {
-    gulp.src([paths.bootstrapCss, paths.morrisCss, paths.sbAdminCss, paths.fontAwsomeCss])
+    gulp.src([paths.bootstrapCss, paths.morrisCss, paths.sbAdminCss, paths.fontAwsomeCss, paths.siteCss])
     .pipe(concat(paths.cssDest + "/min/site.min.css"))
     .pipe(cssmin())
     .pipe(gulp.dest("."));
@@ -49,7 +53,14 @@ gulp.task('min:css', function () {
 
  
 gulp.task('copy:js', function () {
-    gulp.src([paths.jqueryJs, paths.raphaelJs, paths.morrisJs, paths.bootstrapJs])
+    gulp.src([
+            paths.jqueryJs,
+            paths.signalRJs,
+            paths.raphaelJs,
+            paths.morrisJs,
+            paths.bootstrapJs,
+            paths.chatJs]
+        )
     .pipe(gulp.dest(paths.jsDest));
 });
 

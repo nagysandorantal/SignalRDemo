@@ -27,5 +27,12 @@ namespace SignalRDemo.WebHost.Controllers
 
             return View( model );
         }
+
+        // GET: /<controller>/
+        public IActionResult Chat()
+        {
+            var model = _serviceProvider.GetService<ChatViewModel>();
+            return View(model);
+        }
     }
 }

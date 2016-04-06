@@ -30,7 +30,9 @@ namespace SignalRDemo.WebHost
             services.AddSingleton<IViewModelService, ViewModelService>();
             services.AddScoped<HomeController>();
             services.AddScoped<HomeViewModel>();
+            services.AddScoped<ChatViewModel>();
 
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +51,8 @@ namespace SignalRDemo.WebHost
             app.UseMvcWithDefaultRoute();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+
+            app.UseSignalR();
         }
 
         // Entry point for the application.
