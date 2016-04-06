@@ -22,6 +22,9 @@ paths.jqueryJs = "./bower_components/jquery/dist/jquery.js";
 paths.raphaelJs = "./bower_components/raphael/raphael.js";
 paths.morrisJs = "./bower_components/morrisjs/morris.js";
 
+paths.bootstrapJs = "./bower_components/bootstrap/js/*.js";
+
+
 paths.fonts = "./bower_components/font-awesome/fonts/*";
 
 paths.jsDest = paths.webroot + "js";
@@ -31,7 +34,7 @@ paths.fontDest = paths.webroot + "fonts";
 
 
 gulp.task("min:js", function () {
-    gulp.src([paths.jqueryJs, paths.raphaelJs, paths.morrisJs])
+    gulp.src([paths.jqueryJs, paths.raphaelJs, paths.morrisJs, paths.bootstrapJs])
     .pipe(concat(paths.jsDest + "/min/site.min.js"))
     .pipe(uglify())
     .pipe(gulp.dest("."));
@@ -46,18 +49,18 @@ gulp.task('min:css', function () {
 
  
 gulp.task('copy:js', function () {
-    gulp.src([paths.jqueryJs, paths.raphaelJs, paths.morrisJs])
+    gulp.src([paths.jqueryJs, paths.raphaelJs, paths.morrisJs, paths.bootstrapJs])
     .pipe(gulp.dest(paths.jsDest));
 });
 
 gulp.task('copy:css', function () {
     gulp.src([paths.bootstrapCss, paths.morrisCss, paths.sbAdminCss, paths.fontAwsomeCss])
-    .pipe(gulp.dest(paths.cssDest))
+    .pipe(gulp.dest(paths.cssDest));
 });
 
 gulp.task('copy:fonts', function () {
     gulp.src([paths.fonts])
-    .pipe(gulp.dest(paths.fontDest))
+    .pipe(gulp.dest(paths.fontDest));
 });
 
 

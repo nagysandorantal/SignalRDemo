@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SignalRDemo.WebHost", "src\SignalRDemo.WebHost\SignalRDemo.WebHost.xproj", "{91DDEF7D-B2F3-4658-8297-4DD6739112FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRDemo.App", "SignalRDemo.App\SignalRDemo.App.csproj", "{EEF2C2B8-318C-42CD-8389-B40E596D2DBD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,16 +22,11 @@ Global
 		{91DDEF7D-B2F3-4658-8297-4DD6739112FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91DDEF7D-B2F3-4658-8297-4DD6739112FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91DDEF7D-B2F3-4658-8297-4DD6739112FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EEF2C2B8-318C-42CD-8389-B40E596D2DBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EEF2C2B8-318C-42CD-8389-B40E596D2DBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EEF2C2B8-318C-42CD-8389-B40E596D2DBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EEF2C2B8-318C-42CD-8389-B40E596D2DBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{91DDEF7D-B2F3-4658-8297-4DD6739112FC} = {0767B07E-9A80-4818-8C3C-EF7E4F0E6E70}
-		{EEF2C2B8-318C-42CD-8389-B40E596D2DBD} = {0767B07E-9A80-4818-8C3C-EF7E4F0E6E70}
 	EndGlobalSection
 EndGlobal
