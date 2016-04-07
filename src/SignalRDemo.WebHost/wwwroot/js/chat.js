@@ -29,8 +29,8 @@
         });
 
         // Click event-handler for clearing chat messages.
-        $('#clear').click(function ()
-        {
-            $('ul li').remove();
+        $('#clear').click(function() {
+
+            $('#chatdialog').empty();
         });
     });
